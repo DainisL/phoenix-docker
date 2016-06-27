@@ -23,7 +23,7 @@ RUN wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb \
  && apt-get update -y
 
 # install latest elixir package
-RUN apt-get install -y elixir && rm erlang-solutions_1.0_all.deb
+RUN apt-get install -y elixir erlang-dev erlang-parsetools && rm erlang-solutions_1.0_all.deb
 
 # Install last hex
 RUN mix local.hex && mix local.rebar
