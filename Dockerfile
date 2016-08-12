@@ -29,7 +29,7 @@ RUN apt-get install -y elixir erlang-dev erlang-parsetools && rm erlang-solution
 RUN mix local.hex && mix local.rebar
 
 # install the Phoenix Mix archive
-RUN mix archive.install https://github.com/phoenixframework/archives/raw/master/1.2-rc/phoenix_new.ez
+RUN mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
 
 RUN apt-get autoremove
 RUN apt-get autoclean
