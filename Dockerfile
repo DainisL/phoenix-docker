@@ -9,7 +9,8 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # update and install some software requirements
-RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y curl wget git make imagemagick wkhtmltopdf
+RUN apt-get update && apt-get dist-upgrade -y \
+&& apt-get install -y curl wget git make imagemagick wkhtmltopdf htop vim xvfb
 
 
 # install Node.js (>= 5.0.0) and NPM in order to satisfy brunch.io dependencies
