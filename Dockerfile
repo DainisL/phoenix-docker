@@ -10,8 +10,14 @@ ENV LC_ALL en_US.UTF-8
 
 # update and install some software requirements
 RUN apt-get update && apt-get dist-upgrade -y \
-&& apt-get install -y curl wget git make imagemagick wkhtmltopdf htop vim xvfb
+&& apt-get install -y apt-utils curl wget git make imagemagick htop vim xvfb xz-utils
 
+
+# Install wkhtmltopdf
+RUN wget http://download.gna.org/wkhtmltopdf/0.12/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz
+RUN tar -xf wkhtmltox-0.12.3_linux-generic-amd64.tar.xz
+RUN ls
+RUN cp -a ./wkhtmltox/. /usr/
 
 # install Node.js (>= 5.0.0) and NPM in order to satisfy brunch.io dependencies
 # See http://www.phoenixframework.org/docs/installation#section-node-js-5-0-0-
@@ -34,5 +40,6 @@ RUN mix archive.install https://github.com/phoenixframework/archives/raw/master/
 
 RUN apt-get autoremove
 RUN apt-get autoclean
+RUN wkhtmltopdf -V
 
 WORKDIR /code
