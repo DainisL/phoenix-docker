@@ -19,9 +19,8 @@ RUN tar -xf wkhtmltox-0.12.3_linux-generic-amd64.tar.xz
 RUN ls
 RUN cp -a ./wkhtmltox/. /usr/
 
-# install Node.js (>= 5.0.0) and NPM in order to satisfy brunch.io dependencies
-# See http://www.phoenixframework.org/docs/installation#section-node-js-5-0-0-
-RUN curl -sL https://deb.nodesource.com/setup_5.x | bash
+# install Node.js (>= 6.0.0) and NPM in order to satisfy brunch.io dependencies
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash
 RUN apt-get install -y nodejs
 
 # download and install Erlang package
