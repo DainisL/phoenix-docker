@@ -10,7 +10,7 @@ ENV LC_ALL en_US.UTF-8
 
 # update and install some software requirements
 RUN apt-get update && apt-get dist-upgrade -y \
-&& apt-get install -y apt-utils curl wget git make imagemagick htop vim xvfb xz-utils
+&& apt-get install -y apt-utils curl wget git make imagemagick htop vim xvfb xz-utils erlang-xmerl
 
 
 # Install wkhtmltopdf
@@ -37,8 +37,8 @@ RUN mix local.hex && mix local.rebar
 # install the Phoenix Mix archive
 RUN mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
 
-RUN apt-get autoremove
-RUN apt-get autoclean
+RUN apt-get -y autoremove
+RUN apt-get -y autoclean
 RUN wkhtmltopdf -V
 RUN elixir -v
 WORKDIR /code
