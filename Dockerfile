@@ -12,6 +12,10 @@ ENV LC_ALL en_US.UTF-8
 RUN apt-get update && apt-get dist-upgrade -y \
 && apt-get install -y apt-utils curl wget git make imagemagick htop vim xvfb xz-utils erlang-xmerl
 
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb http://dl.yarnpkg.com/debian/ stable main" >> /etc/apt/sources.list.d/yarn.list
+
+RUN apt-get update && apt-get install -y yarn
 
 # Install wkhtmltopdf
 RUN wget http://download.gna.org/wkhtmltopdf/0.12/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
